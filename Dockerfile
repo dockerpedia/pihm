@@ -15,11 +15,11 @@ RUN wget https://computation.llnl.gov/projects/sundials/download/sundials-2.2.0.
     && ./configure \
     && make \
     && make install \
+    && cd \    
     && wget http://www.pihm.psu.edu/PIHM_v2.2.tar \
-    && cd 
     && tar xvf PIHM_v2.2.tar \
     && cd PIHM_v2.2 \
-    && make clean
+    && make clean \
     && grep -rl Makefile . | xargs sed -i 's/\/Users\/xxy113\/software/\/app/g' \
     && make pihm \
     && mv pihm /usr/bin
